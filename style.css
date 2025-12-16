@@ -7,7 +7,6 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* FULL SCREEN COLORFUL BACKGROUND */
 .app-wrapper {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea, #764ba2, #43cea2);
@@ -16,10 +15,9 @@ body {
   align-items: center;
 }
 
-/* APP CARD CENTER */
 .container {
-  width: 380px;
-  background: #ffffff;
+  width: 400px;
+  background: #fff;
   padding: 25px;
   border-radius: 25px;
   box-shadow: 0 25px 50px rgba(0,0,0,0.35);
@@ -27,19 +25,19 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .cards {
   display: flex;
   gap: 12px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .card {
   flex: 1;
   color: #fff;
-  padding: 18px 10px;
+  padding: 16px 10px;
   border-radius: 18px;
   text-align: center;
   font-weight: bold;
@@ -47,11 +45,10 @@ h1 {
 
 .card span {
   display: block;
-  font-size: 26px;
-  margin-top: 8px;
+  font-size: 24px;
+  margin-top: 6px;
 }
 
-/* COLORFUL CARDS */
 .steps {
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
 }
@@ -67,33 +64,48 @@ h1 {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 input {
-  padding: 14px;
+  padding: 12px;
   border-radius: 12px;
   border: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 button {
-  padding: 14px;
+  padding: 12px;
   border-radius: 14px;
   border: none;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: #fff;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
 }
 
-button:hover {
-  opacity: 0.9;
+.history-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#history {
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.history-item {
+  background: #f3f3f3;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 .note {
-  margin-top: 15px;
+  margin-top: 10px;
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   color: #555;
 }
