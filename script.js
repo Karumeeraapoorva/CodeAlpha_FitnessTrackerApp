@@ -7,32 +7,64 @@ const caloriesInput = document.getElementById("caloriesInput");
 const workoutInput = document.getElementById("workoutInput");
 const addBtn = document.getElementById("addBtn");
 
-/* LOAD DATA ON PAGE LOAD */
-function loadData() {
-  stepsEl.textContent = localStorage.getItem("steps") ?? 0;
-  caloriesEl.textContent = localStorage.getItem("calories") ?? 0;
-  workoutEl.textContent = localStorage.getItem("workout") ?? 0;
+const historyDiv = document.getElementById("history");
+
+// Get today date
+function getTodayDate() {
+  return new Date().toISOString().split("T")[0];
 }
 
-/* SAVE & UPDATE DATA */
+// Load history
+function loadHistory() {
+  historyDiv.innerHTML = "";
+  const data = JSON.parse(localStorage.getItem("fitnessData")) || [];
+
+  data.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "history-item";
+    div.innerHTML = `
+      <strong>${item.date}</strong><br>
+      Steps: ${item.steps},
+      Calories: ${item.calories},
+      Workout: ${item.workout} min
+    `;
+    historyDiv.prepend(div);
+  });
+
+  if (data.length > 0) {
+    const latest = data[data.length - 1];
+    stepsEl.textContent = latest.steps;
+    caloriesEl.textContent = latest.calories;
+    workoutEl.textContent = latest.workout;
+  }
+}
+
+// Save today data
 addBtn.addEventListener("click", () => {
-  if (stepsInput.value.trim() !== "") {
-    localStorage.setItem("steps", stepsInput.value);
-  }
+  const steps = stepsInput.value || 0;
+  const calories = caloriesInput.value || 0;
+  const workout = workoutInput.value || 0;
 
-  if (caloriesInput.value.trim() !== "") {
-    localStorage.setItem("calories", caloriesInput.value);
-  }
+  const today = getTodayDate();
+  let data = JSON.parse(localStorage.getItem("fitnessData")) || [];
 
-  if (workoutInput.value.trim() !== "") {
-    localStorage.setItem("workout", workoutInput.value);
-  }
+  // Remove today if already exists
+  data = data.filter(item => item.date !== today);
 
-  loadData();
+  data.push({
+    date: today,
+    steps,
+    calories,
+    workout
+  });
+
+  localStorage.setItem("fitnessData", JSON.stringify(data));
 
   stepsInput.value = "";
   caloriesInput.value = "";
   workoutInput.value = "";
+
+  loadHistory();
 });
 
-loadData();
+loadHistory();
