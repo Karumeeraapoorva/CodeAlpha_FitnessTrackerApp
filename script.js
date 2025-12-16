@@ -1,32 +1,35 @@
-let activities = JSON.parse(localStorage.getItem("activities")) || [];
+let steps = localStorage.getItem("steps") || 0;
+let calories = localStorage.getItem("calories") || 0;
+let workout = localStorage.getItem("workout") || 0;
 
-function addActivity() {
-  let activity = document.getElementById("activity").value;
-  let calories = document.getElementById("calories").value;
+const stepsEl = document.getElementById("steps");
+const caloriesEl = document.getElementById("calories");
+const workoutEl = document.getElementById("workout");
 
-  if (activity === "" || calories === "") {
-    alert("Please enter activity and calories");
-    return;
-  }
-
-  activities.push({ activity, calories });
-  localStorage.setItem("activities", JSON.stringify(activities));
-
-  document.getElementById("activity").value = "";
-  document.getElementById("calories").value = "";
-
-  displayActivities();
+function updateUI() {
+  stepsEl.textContent = steps;
+  caloriesEl.textContent = calories;
+  workoutEl.textContent = workout;
 }
 
-function displayActivities() {
-  let list = document.getElementById("activityList");
-  list.innerHTML = "";
+function addData() {
+  const s = Number(document.getElementById("stepsInput").value);
+  const c = Number(document.getElementById("caloriesInput").value);
+  const w = Number(document.getElementById("workoutInput").value);
 
-  activities.forEach(item => {
-    let li = document.createElement("li");
-    li.innerText = `${item.activity} - ${item.calories} kcal`;
-    list.appendChild(li);
-  });
+  steps += s;
+  calories += c;
+  workout += w;
+
+  localStorage.setItem("steps", steps);
+  localStorage.setItem("calories", calories);
+  localStorage.setItem("workout", workout);
+
+  document.getElementById("stepsInput").value = "";
+  document.getElementById("caloriesInput").value = "";
+  document.getElementById("workoutInput").value = "";
+
+  updateUI();
 }
 
-displayActivities();
+updateUI();
