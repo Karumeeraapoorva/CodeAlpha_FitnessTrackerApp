@@ -1,53 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
+}
+
+/* FULL SCREEN COLORFUL BACKGROUND */
+.app-wrapper {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #667eea, #764ba2, #43cea2);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* APP CARD CENTER */
 .container {
-  width: 360px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  width: 380px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .cards {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
 .card {
   flex: 1;
   color: #fff;
-  padding: 15px;
-  border-radius: 15px;
+  padding: 18px 10px;
+  border-radius: 18px;
   text-align: center;
   font-weight: bold;
 }
 
 .card span {
   display: block;
-  font-size: 24px;
-  margin-top: 5px;
+  font-size: 26px;
+  margin-top: 8px;
 }
 
+/* COLORFUL CARDS */
 .steps {
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
 }
 
 .calories {
-  background: linear-gradient(135deg, #ff512f, #dd2476);
+  background: linear-gradient(135deg, #ff512f, #f09819);
 }
 
 .workout {
@@ -57,33 +67,33 @@ h1 {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 input {
-  padding: 12px;
-  border-radius: 10px;
+  padding: 14px;
+  border-radius: 12px;
   border: 1px solid #ccc;
   font-size: 16px;
 }
 
 button {
-  padding: 12px;
-  border-radius: 12px;
+  padding: 14px;
+  border-radius: 14px;
   border: none;
-  background: #667eea;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: #fff;
   font-size: 16px;
   cursor: pointer;
 }
 
 button:hover {
-  background: #5a67d8;
+  opacity: 0.9;
 }
 
 .note {
-  margin-top: 12px;
+  margin-top: 15px;
   text-align: center;
   font-size: 13px;
-  color: #666;
+  color: #555;
 }
