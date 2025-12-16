@@ -9,34 +9,36 @@
 
 <body>
 
-  <div class="container">
-    <h1>🏋️ Fitness Tracker</h1>
+  <div class="app-wrapper">
+    <div class="container">
+      <h1>🏋️ Fitness Tracker</h1>
 
-    <div class="cards">
-      <div class="card steps">
-        🚶 Steps
-        <span id="steps">0</span>
+      <div class="cards">
+        <div class="card steps">
+          🚶 Steps
+          <span id="steps">0</span>
+        </div>
+
+        <div class="card calories">
+          🔥 Calories
+          <span id="calories">0</span>
+        </div>
+
+        <div class="card workout">
+          ⏱ Workout (min)
+          <span id="workout">0</span>
+        </div>
       </div>
 
-      <div class="card calories">
-        🔥 Calories
-        <span id="calories">0</span>
+      <div class="form">
+        <input type="number" id="stepsInput" placeholder="Enter steps">
+        <input type="number" id="caloriesInput" placeholder="Enter calories">
+        <input type="number" id="workoutInput" placeholder="Workout minutes">
+        <button id="addBtn">Save Data</button>
       </div>
 
-      <div class="card workout">
-        ⏱ Workout (min)
-        <span id="workout">0</span>
-      </div>
+      <p class="note">✅ Data is saved & shown using Local Storage</p>
     </div>
-
-    <div class="form">
-      <input type="number" id="stepsInput" placeholder="Enter steps">
-      <input type="number" id="caloriesInput" placeholder="Enter calories">
-      <input type="number" id="workoutInput" placeholder="Workout minutes">
-      <button id="addBtn">Add Data</button>
-    </div>
-
-    <p class="note">Data stored using Local Storage</p>
   </div>
 
   <script src="script.js"></script>
