@@ -25,7 +25,7 @@
         </div>
 
         <div class="card workout">
-          ⏱ Workout (min)
+          ⏱ Workout
           <span id="workout">0</span>
         </div>
       </div>
@@ -34,10 +34,13 @@
         <input type="number" id="stepsInput" placeholder="Enter steps">
         <input type="number" id="caloriesInput" placeholder="Enter calories">
         <input type="number" id="workoutInput" placeholder="Workout minutes">
-        <button id="addBtn">Save Data</button>
+        <button id="addBtn">Save Today Data</button>
       </div>
 
-      <p class="note">✅ Data is saved & shown using Local Storage</p>
+      <h3 class="history-title">📅 Daily History</h3>
+      <div id="history"></div>
+
+      <p class="note">Data stored date-wise using Local Storage</p>
     </div>
   </div>
 
