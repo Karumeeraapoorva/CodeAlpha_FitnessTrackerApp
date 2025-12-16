@@ -7,17 +7,24 @@
 </head>
 <body>
 
-  <div class="container">
-    <h2>Fitness Tracker</h2>
+  <h1>🏋️ Fitness Tracker</h1>
 
-    <input type="text" id="activity" placeholder="Activity (Walking, Gym)">
-    <input type="number" id="calories" placeholder="Calories Burned">
-    <button onclick="addActivity()">Add Activity</button>
+  <div class="dashboard">
+    <div class="card steps">
+      <h2>🚶 Steps</h2>
+      <p id="steps">0</p>
+    </div>
 
-    <h3>Today's Activities</h3>
-    <ul id="activityList"></ul>
+    <div class="card calories">
+      <h2>🔥 Calories</h2>
+      <p id="calories">0</p>
+    </div>
+
+    <div class="card workout">
+      <h2>⏱ Workout (mins)</h2>
+      <p id="workout">0</p>
+    </div>
   </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <div class="form">
+    <input type="number" id="stepsInput" pla
