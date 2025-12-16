@@ -1,30 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Fitness Tracker App</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Fitness Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .app {
+      width: 380px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      padding: 15px;
+      border-radius: 15px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .steps {
+      background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    }
+
+    .calories {
+      background: linear-gradient(135deg, #ff512f, #f09819);
+    }
+
+    .workout {
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+    }
+
+    .value {
+      font-size: 26px;
+      margin-top: 8px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .quote {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>🏋️ Fitness Tracker</h1>
+  <div class="app">
+    <h1>🏋️ Fitness Tracker</h1>
 
-  <div class="dashboard">
-    <div class="card steps">
-      <h2>🚶 Steps</h2>
-      <p id="steps">0</p>
+    <div class="cards">
+      <div class="card steps">
+        🚶 Steps
+        <div class="value" id="steps">0</div>
+      </div>
+
+      <div class="card calories">
+        🔥 Calories
+        <div class="value" id="calories">0</div>
+      </div>
+
+      <div class="card workout">
+        ⏱ Workout (mins)
+        <div class="value" id="workout">0</div>
+      </div>
     </div>
 
-    <div class="card calories">
-      <h2>🔥 Calories</h2>
-      <p id="calories">0</p>
+    <div class="form">
+      <input type="number" id="stepsInput" placeholder="Enter steps">
+      <input type="number" id="caloriesInput" placeholder="Enter calories">
+      <input type="number" id="workoutInput" placeholder="Workout minutes">
+      <button onclick="addData()">➕ Add Data</button>
     </div>
 
-    <div class="card workout">
-      <h2>⏱ Workout (mins)</h2>
-      <p id="workout">0</p>
+    <div class="quote">
+      💡 Small steps every day lead to big results!
     </div>
   </div>
 
-  <div class="form">
-    <input type="number" id="stepsInput" pla
+  <script>
+    const stepsEl = document.getElementById("steps");
+    const caloriesEl = document.getElementById("calories");
+    const workoutEl = document.getElementById("workout");
+
+    function loadData() {
+      stepsEl.textContent = localStorage.getItem("steps") || 0;
+      caloriesEl.textContent = localStorage.getItem("calories") || 0;
+      workoutEl.textContent = localStorage.getItem("workout") || 0;
+    }
+
+    function addData() {
+      const steps = document.getElementById("stepsInput").value;
+      const calories = document.getElementById("caloriesInput").value;
+      const workout = document.getElementById("workoutInput").value;
+
+      if (steps !== "") localStorage.setItem("steps", steps);
+      if (calories !== "") localStorage.setItem("calories", calories);
+      if (workout !== "") localStorage.setItem("workout", workout);
+
+      loadData();
+
+      document.getElementById("stepsInput").value = "";
+      document.getElementById("caloriesInput").value = "";
+      document.getElementById("workoutInput").value = "";
+    }
+
+    loadData();
+  </script>
+
+</body>
+</html>
